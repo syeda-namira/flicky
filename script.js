@@ -5,7 +5,7 @@ let gate = document.querySelector(".gate");
 let cats = document.querySelectorAll(".cat1, .cat2, .cat3");
 
 
-const jumpSound = new Audio("sound/jump.wav");
+const jumpSound = new Audio("sound/jump.mp3");
 const collectSound = new Audio("sound/collect.wav");
 const hitSound = new Audio("sound/hit.wav");
 
