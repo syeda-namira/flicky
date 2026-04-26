@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flicky - Guide</title>
+
+<style>
+body {
+  color: #fff;
+  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  font-size: clamp(14px, 1vw, 18px);
+}
+ 
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("img/image copy.png") no-repeat center;
+            background-size: cover;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        body {
+            background: url("img/image copy.png") no-repeat center;
+            background-size: contain;
+        }
+
+@media (min-width:1500px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+.title {
+  font-size: clamp(28px, 6vw, 49px);
+}
+
+.sub-text {
+  font-size: clamp(18px, 6vw, 30px);
+}
+
+.small-text {
+  font-size: clamp(24px, 1vw, 29px);
+}
+
+@media (min-width:1500px) {
+  .right-text {
+    font-size: 20px !important;
+  }
+
+  .control-table td,
+  .control-table th {
+    font-size: 30px !important;
+    padding: 10px !important;
+  }
+
+  .control-title {
+    font-size: 27px !important;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div style="
+width:min(95%,1600px);
+height:95vh;
+border:4px solid #333;
+background-color:#030307ef;
+display:flex;
+flex-direction:column;
+">
+
+<div style="
+background:#d64400;
+border-bottom:2px solid #555;
+padding:10px;
+text-align:center;
+">
+<h1 class="title" style="margin:0;color:#ffff00;letter-spacing:2px;">
+Flicky - Tech Avengers Team
+</h1>
+</div>
+
+<div style="
+display:flex;
+flex-wrap:wrap;
+flex:1;
+padding:2%;
+gap:2%;
+overflow:hidden;
+">
+
+<div style="
+flex:65%;
+min-width:320px;
+border-right:1px solid #333;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+">
+
+<div style="
+height:45px;
+background:repeating-linear-gradient(90deg,#b71c1c 0px,#b71c1c 40px,#fff 40px,#fff 44px);
+border-bottom:4px solid #fff;
+display:flex;
+align-items:center;
+justify-content:space-around;
+">
+
+<div style="width:22px;height:18px;background:#4fc3f7;border:2px solid #fff;border-radius:50% 50% 0 0;"></div>
+<div style="width:22px;height:18px;background:#4fc3f7;border:2px solid #fff;border-radius:50% 50% 0 0;"></div>
+<div style="width:22px;height:18px;background:#4fc3f7;border:2px solid #fff;border-radius:50% 50% 0 0;"></div>
+<div style="width:22px;height:18px;background:#4fc3f7;border:2px solid #fff;border-radius:50% 50% 0 0;"></div>
+
+</div>
+
+<div style="
+text-align:center;
+font-weight:bold;
+padding:20px;
+flex:1;
+display:flex;
+flex-direction:column;
+justify-content:center;
+">
+
+<div class="sub-text" style="margin-bottom:15px;">
+🐤🐤🐤 MAKE YOUR MOVE 🐤🐤🐤
+</div>
+
+<div class="sub-text" style="margin-bottom:15px;">
+HELP FLICKY REACH THE DOOR
+</div>
+
+<p class="small-text">
+PRESS BUTTON TO JUMP AND COLLECT THE CHICKS
+</p>
+
+<div style="
+width:80%;
+height:15px;
+margin:20px auto;
+background:linear-gradient(to right,#ff9800,#ffeb3b);
+border:2px solid #fff;
+"></div>
+
+<div class="sub-text">
+🐤 RACK UP AN EPIC HIGHEST LEVEL 🐤
+</div>
+
+</div>
+
+<div style="
+height:45px;
+background:#9e9d24;
+background-image:
+repeating-linear-gradient(45deg,#afb42b 25%,transparent 25%,transparent 75%,#afb42b 75%,#afb42b),
+repeating-linear-gradient(45deg,#afb42b 25%,#9e9d24 25%,#9e9d24 75%,#afb42b 75%,#afb42b);
+background-size:20px 20px;
+"></div>
+
+</div>
+
+<div style="
+flex:30%;
+min-width:280px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
+font-size:clamp(13px,1vw,16px);
+">
+
+<table class="control-table" style="
+width:100%;
+border-collapse:collapse;
+border:2px solid #fff;
+text-align:center;
+">
+
+<tr style="background:#333;">
+<th colspan="2" class="control-title" style="
+padding:8px;
+color:#ffff00;
+font-size:clamp(14px,1.2vw,18px);
+">
+CONTROL
+</th>
+</tr>
+
+<tr>
+<td style="border:1px solid #fff;padding:6px;">GP</td>
+<td style="border:1px solid #fff;padding:6px;">KB</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #fff;padding:6px;">▲</td>
+<td style="border:1px solid #fff;padding:6px;">↑</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #fff;padding:6px;">◄</td>
+<td style="border:1px solid #fff;padding:6px;">←</td>
+</tr>
+
+<tr>
+<td style="border:1px solid #fff;padding:6px;">►</td>
+<td style="border:1px solid #fff;padding:6px;">→</td>
+</tr>
+
+</table>
+
+<div class="right-text" style="padding:10px;">
+<h3 style="color:#ffff00;margin-bottom:5px;">Instructions</h3>
+<p style="margin:0;">
+This table maps GP directional inputs to their KB equivalents. Use
+                        this reference to ensure consistent navigation and movement across both input devices
+</p>
+</div>
+
+<div class="right-text" style="
+border:2px solid #fff;
+padding:10px;
+margin-top:10px;
+">
+
+<h3 style="color:#ffff00;margin-bottom:5px;">Comments</h3>
+
+<p style="margin:0 0 10px 0;">Your feedback means a lot!</p>
+
+<a href="https://docs.google.com/forms/d/1EESiGU_2KJ1jvdWnfucwEBXhuJ72rerybJnMF2eneyM/edit"
+target="_blank"
+style="
+display:block;
+text-align:center;
+padding:10px;
+background:#b71c1c;
+color:#fff;
+text-decoration:none;
+border:3px solid #fff;
+font-weight:bold;
+">
+TAP TO COMMENT
+</a>
+
+</div>
+
+<a href="levels.html" style="
+display:block;
+text-align:center;
+padding:12px;
+margin-top:10px;
+background:#b71c1c;
+color:#fff;
+border:3px solid #fff;
+text-decoration:none;
+font-weight:bold;
+box-shadow:4px 4px 0px #555;
+">
+CLICK TO START
+</a>
+
+</div>
+
+</div>
+<audio id="bgMusic" loop>
+    <source src="sound/bgmusic.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+music.volume = 0.1;
+
+window.addEventListener("load", () => {
+    const isPlaying = localStorage.getItem("musicPlaying");
+    const currentTime = localStorage.getItem("musicTime");
+
+    if (currentTime) {
+        music.currentTime = parseFloat(currentTime);
+    }
+
+    if (isPlaying === "true") {
+        music.play().catch(() => {});
+    }
+});
+
+setInterval(() => {
+    if (!music.paused) {
+        localStorage.setItem("musicTime", music.currentTime);
+    }
+}, 1000);
+
+document.addEventListener("click", () => {
+    music.play().then(() => {
+        localStorage.setItem("musicPlaying", "true");
+    }).catch(() => {});
+});
+</script>
+
+</body>
+</html>

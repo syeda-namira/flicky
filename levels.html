@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Levels Page</title>
+
+  <style>
+\    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      margin: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("img/image copy.png") no-repeat center;
+      background-size: cover;
+      filter: blur(12px);
+      transform: scale(1.1);
+      z-index: -1;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1200px;
+      text-align: center;
+      margin: auto;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 6rem;
+      text-decoration: underline;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+      color: rgb(0, 0, 0);
+      text-shadow: 0 3px 10px rgba(247, 90, 0, 0.993);
+    }
+
+    .level-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 220px);
+      justify-content: center;
+      gap: 20px;
+      padding: 30px;
+    }
+
+    .level-card {
+      position: relative;
+      width: 220px;
+      height: 300px;
+      background: #ff8800;
+      border-radius: 15px;
+      padding: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      border: 3px solid transparent;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .level-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .level-card:hover:not(.locked) {
+      transform: translateY(-10px);
+      border-color: #00d2ff;
+      box-shadow: 0 15px 30px rgba(0, 210, 255, 0.3);
+    }
+
+    .level-card.locked {
+      filter: grayscale(4%) brightness(0.7);
+      cursor: not-allowed;
+    }
+
+    .lock-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 3rem;
+      display: none;
+    }
+
+    .locked .lock-icon {
+      display: block;
+    }
+
+    @media (max-width: 900px) {
+     
+         h1 {
+        font-size: 3rem;
+      }
+
+      .level-grid {
+            grid-template-columns: repeat(3, 230px);
+        gap:30px;
+      }
+
+      .level-card {
+        width: 200px;
+        height: 200px;
+      }
+
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      .level-grid {
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
+      }
+
+      .level-card {
+        width: 100%;
+
+      }
+
+      .lock-icon {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 1600px) {
+      h1 {
+        font-size: 3.5rem;
+      }
+
+      .level-grid {
+        gap: 30px;
+        justify-content: center;
+      }
+
+      .level-card {
+        width: 200px;
+        height: 250px;
+      }
+
+      .lock-icon {
+        font-size: 2rem;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      h1 {
+        font-size: 4rem;
+      }
+
+      .level-grid {
+        grid-template-columns: repeat(4, 290px);
+        gap: 35px;
+      }
+
+      .level-card {
+        width: 250px;
+        height: 300px;
+      }
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+
+    .popup-content {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .popup-content h2 {
+      margin: 0 0 20px;
+    }
+
+    .popup-content button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      border: none;
+      background: #4CAF50;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    .popup-content button:hover {
+      background: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Select Level</h1>
+
+    <div class="level-grid" id="levelGrid">
+      <div class="level-card" id="level-1" onclick="goToLevel(1)">
+        <img src="img/level1b.jpeg">
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <div class="level-card locked" id="level-2" onclick="goToLevel(2)">
+        <img src="img/level2b.jpeg">
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <div class="level-card locked" id="level-3" onclick="goToLevel(3)">
+        <img src="img/level3b.jpeg">
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <div class="level-card locked" id="level-4" onclick="goToLevel(4)">
+        <img src="img/level4.jpeg">
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <div class="level-card locked" id="level-5" onclick="goToLevel(5)">
+        <img src="img/level5.jpeg">
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <div class="level-card locked" id="level-6" onclick="goToLevel(6)">
+        <img src="img/level6.jpeg">
+        <div class="lock-icon">🔒</div>
+      </div>
+
+      <div class="level-card locked" id="level-7" onclick="goToLevel(7)">
+        <img src="img/level7.jpeg">
+        <div class="lock-icon">🔒</div>
+      </div>
+    </div>
+  </div>
+  <div id="unlocked-popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+      <h2>This level is still unlocked!</h2>
+      <button id="life-ok-btn">OK</button>
+    </div>
+  </div>
+  <audio id="bgMusic" loop>
+    <source src="sound/bgmusic.mp3" type="audio/mpeg">
+  </audio>
+  <script>
+    const music = document.getElementById("bgMusic");
+
+    music.volume = 0.1;
+
+    window.addEventListener("load", () => {
+      const isPlaying = localStorage.getItem("musicPlaying");
+      const currentTime = localStorage.getItem("musicTime");
+
+      if (currentTime) {
+        music.currentTime = parseFloat(currentTime);
+      }
+
+      if (isPlaying === "true") {
+        music.play().catch(() => { });
+      }
+    });
+
+    setInterval(() => {
+      if (!music.paused) {
+        localStorage.setItem("musicTime", music.currentTime);
+      }
+    }, 1000);
+
+    document.addEventListener("click", () => {
+      music.play().then(() => {
+        localStorage.setItem("musicPlaying", "true");
+      }).catch(() => { });
+    });
+    function updateUI() {
+      const unlocked = parseInt(sessionStorage.getItem('userProgress')) || 1;
+
+      for (let i = 1; i <= 7; i++) {
+        const card = document.getElementById('level-' + i);
+
+        if (i <= unlocked) {
+          card.classList.remove('locked');
+        } else {
+          card.classList.add('locked');
+        }
+      }
+    }
+
+    function goToLevel(num) {
+      const unlocked = parseInt(sessionStorage.getItem('userProgress')) || 1;
+      if (num <= unlocked) {
+        window.location.href = `level${num}.html`;
+      } else {
+        document.getElementById("unlocked-popup").style.display = "flex";
+
+      }
+    }
+    window.addEventListener("load", () => {
+      if (!sessionStorage.getItem("userProgress")) {
+        sessionStorage.setItem("userProgress", "1");
+      }
+
+    });
+    document.getElementById("life-ok-btn").addEventListener("click", () => {
+
+      document.getElementById("unlocked-popup").style.display = "none";
+    })
+    updateUI();
+  </script>
+
+</body>
+
+</html>

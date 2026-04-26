@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flicky Game</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Comic Sans MS', 'Poppins', cursive;
+        }
+
+       
+        .container {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+
+            display: flex;
+            flex-direction: column;
+          
+        }
+
+        .container::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("img/image copy.png") no-repeat center;
+            background-size: cover;
+            filter: blur(10px);
+            z-index: -1;
+        }
+
+        .container {
+            background: url("img/image copy.png") no-repeat center;
+            background-size: contain;
+        }
+
+        .logo {
+            position: relative;
+            width: 27%;
+            height: 30%;
+            top: 25%;
+            left: 36.5%;
+        }
+
+       
+        .logo img {
+
+            width: 100%;
+            height: 100%;
+       
+            animation: glowLogo 2s infinite ease-in-out;
+        }
+
+      
+        .button {
+            position: relative;
+            top: 55%;
+        
+            left: 37.5%;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .button button {
+    
+            margin-top: 50px;
+            padding: 1% 5%;
+         width: 25%;
+            font-size: 35px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+
+            border-radius: 15px;
+
+            background: linear-gradient(45deg, #00c6ff, #0072ff);
+            box-shadow: 0 0 10px #00c6ff;
+
+            transition: 0.3s;
+
+            animation: glowBtn 1.5s infinite alternate;
+        }
+
+  
+        .button button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(45deg, #ffcc00, #ff6600);
+            box-shadow: 0 0 20px #ffcc00;
+        }
+
+        @keyframes glowLogo {
+            0% {
+                transform: scale(0.95);
+                filter: drop-shadow(0px 0px 99px #ffee00);
+            }
+
+            50% {
+                                transform: scale(0.9);
+
+                filter: drop-shadow(0px 0px 99px #01ff01);
+            }
+
+            100% {
+                                transform: scale(0.95);
+
+                filter: drop-shadow(0px 0px 99px #44f3ff);
+            }
+        }
+
+        @keyframes glowBtn {
+            0% {
+                box-shadow: 0 0 10px #3700ff;
+            }
+
+            100% {
+                box-shadow: 0 0 25px #000000, 0 0 40px #031e47;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="logo">
+            <img src="img/image.png" alt="">
+
+        </div>
+        <div class="button">
+            <form action="guide.html">
+            <button>Let's Begin</button>
+            </form>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="sound/bgmusic.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById("bgMusic");
+
+     
+        music.volume = 0.1;
+
+     
+        window.addEventListener("load", () => {
+            const isPlaying = localStorage.getItem("musicPlaying");
+            const currentTime = localStorage.getItem("musicTime");
+
+            if (currentTime) {
+                music.currentTime = parseFloat(currentTime);
+            }
+
+            if (isPlaying === "true") {
+                music.play().catch(() => { });
+            }
+        });
+
+       
+        setInterval(() => {
+            if (!music.paused) {
+                localStorage.setItem("musicTime", music.currentTime);
+            }
+        }, 1000);
+
+        document.addEventListener("click", () => {
+            music.play().then(() => {
+                localStorage.setItem("musicPlaying", "true");
+            }).catch(() => { });
+        });
+    </script>
+    </div>
+
+</body>
+
+</html>

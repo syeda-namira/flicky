@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Level 1
+  </title>
+  <link href="style.css" rel="stylesheet" />
+</head>
+<body>
+<div class="game-wrapper">
+  <div class="game-container">
+
+    <img src="img/baies.png" class="b1">
+    <img src="img/baies.png" class="b2">
+    <img src="img/baies.png" class="b3">
+    <img src="img/baies.png" class="b4">
+    <img src="img/baies.png" class="b5">
+    <img src="img/baies.png" class="b6">
+    <img src="img/baies.png" class="b7">
+    <img src="img/baies.png" class="b8">
+    <img src="img/baies.png" class="b9">
+    <img src="img/flicky.png" class="flicky">
+
+    <img src="img/level1hole.jpg" class="hole1">
+    <img src="img/level1hole.jpg" class="hole3">
+    <img src="img/level1hole.jpg" class="hole4">
+
+    <img src="img/level1wind.jpg" class="wind1">
+    <img src="img/level1wind.jpg" class="wind2">
+    <img src="img/level1wind.jpg" class="wind3">
+    <img src="img/level1wind.jpg" class="wind4">
+
+    <img src="img/level1stair.jpg" class="pil1">
+    <img src="img/level1stair.jpg" class="pil2">
+    <img src="img/level1stair.jpg" class="pil3">
+    <img src="img/level1stair.jpg" class="pil4">
+    <img src="img/level1stair.jpg" class="pil5">
+    <img src="img/level1stair.jpg" class="pil6">
+    <img src="img/level1stair.jpg" class="pil7">
+
+    <img src="img/level1gate.jpg" class="gate">
+
+    <img src="img/cats.png" class="cat1">
+    <img src="img/cats.png" class="cat2">  
+    <img src="img/cats.png" class="cat3">  
+
+    <img src="img/level1pot2.png" class="pot1">
+    <img src="img/level1pot2.png" class="pot2">
+    <img src="img/level1pot2.png" class="pot3">
+    <img src="img/level1pot2.png" class="pot4">
+    <img src="img/level1pot2.png" class="pot5">
+    <img src="img/level1pot2.png" class="pot6">
+    <img src="img/level1pot2.png" class="pot7">
+    <img src="img/level1pot2.png" class="pot8">
+    <div class="botm">
+      <img src="img/level1stair.jpg">
+    </div>
+    <div id="lives-display">Lives: 3</div>
+            <div id="score-display">Score: (0/12)</div>
+
+  </div>
+
+<div id="win-popup" class="popup-overlay" style="display: none;">
+  <div class="popup-content">
+    <h2>Yaayy! You completed the 1st level!</h2>
+    <button id="next-level-btn">Next Level</button>
+    <button id="home-btn">Home</button>
+  </div>
+</div>
+
+<div id="life-popup" class="popup-overlay" style="display: none;">
+    <div class="popup-content">
+        <h2>You lost 1 life!</h2>
+        <button id="life-ok-btn">OK</button>
+    </div>
+    </div>
+<div id="gameOverText">
+  <h1>GAME OVER</h1>
+  <button onclick="location.reload()">RESTART</button>
+<button onclick="window.location.href='levels.html'">HOME</button>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="sound/gamebg.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const music = document.getElementById("bgMusic");
+
+music.volume = 0.1;
+
+window.addEventListener("load", () => {
+    const isPlaying = localStorage.getItem("musicPlaying");
+    const currentTime = localStorage.getItem("musicTime");
+
+    if (currentTime) {
+        music.currentTime = parseFloat(currentTime);
+    }
+
+    if (isPlaying === "true") {
+        music.play().catch(() => {});
+    }
+});
+
+setInterval(() => {
+    if (!music.paused) {
+        localStorage.setItem("musicTime", music.currentTime);
+    }
+}, 1000);
+
+document.addEventListener("click", () => {
+    music.play().then(() => {
+        localStorage.setItem("musicPlaying", "true");
+    }).catch(() => {});
+});
+</script>
+<script src="script.js"></script>
+</body>
+
+</html>
